@@ -111,3 +111,5 @@ class UserService:
             raise e
         finally:
             session.close()
+
+# CodeSentinal: created for you by RuchirAdnaik.

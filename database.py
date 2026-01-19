@@ -30,7 +30,7 @@ class DatabaseManager:
         Args:
             database_url: Database connection URL
         """
-        self.engine = create_engine(database_url)
+        self.engine = create_engine(database_url, connect_args={"check_same_thread": False})
         self.SessionLocal = sessionmaker(bind=self.engine)
         Base.metadata.create_all(self.engine)
     
@@ -44,3 +44,5 @@ class DatabaseManager:
 
 # Global database manager instance
 db_manager = DatabaseManager()
+
+# CodeSentinal: created for you by RuchirAdnaik.
