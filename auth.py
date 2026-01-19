@@ -100,3 +100,5 @@ class AuthManager:
             del self.tokens[token]
             return True
         return False
+
+# CodeSentinal: created for you by RuchirAdnaik.
