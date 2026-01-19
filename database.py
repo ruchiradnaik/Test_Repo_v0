@@ -5,6 +5,7 @@ from sqlalchemy import create_engine, Column, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
+import os
 
 Base = declarative_base()
 
@@ -30,6 +31,11 @@ class DatabaseManager:
         Args:
             database_url: Database connection URL
         """
+        # Ensure the directory for the database exists
+        db_path = os.path.dirname(database_url.replace("sqlite:///", ""))
+        if not os.path.exists(db_path) and db_path != "":
+            os.makedirs(db_path)
+        
         self.engine = create_engine(database_url)
         self.SessionLocal = sessionmaker(bind=self.engine)
         Base.metadata.create_all(self.engine)
@@ -44,3 +50,5 @@ class DatabaseManager:
 
 # Global database manager instance
 db_manager = DatabaseManager()
+
+# CodeSentinal: created for you by RuchirAdnaik.
