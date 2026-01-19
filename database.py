@@ -44,3 +44,5 @@ class DatabaseManager:
 
 # Global database manager instance
 db_manager = DatabaseManager()
+
+# CodeSentinal: created for you by RuchirAdnaik.
