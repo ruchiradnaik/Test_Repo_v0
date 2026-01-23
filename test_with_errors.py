@@ -9,8 +9,8 @@ from user_service import UserService
 def test_user_creation():
     """Test creating a user - this function has an error."""
     service = UserService()
-    # Error: missing required argument 'email'
-    user = service.create_user("testuser")
+    # Fixed: added the required argument 'email'
+    user = service.create_user("testuser", "testuser@example.com")
     return user
 
 def process_data():
@@ -28,6 +28,8 @@ def image_processing():
     return gray
 
 if __name__ == '__main__':
-    # This will fail due to the error in test_user_creation
+    # This will now work after fixing the error in test_user_creation
     user = test_user_creation()
     print(f"Created user: {user}")
+
+# CodeSentinal: created for you by RuchirAdnaik.
